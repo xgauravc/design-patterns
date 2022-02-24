@@ -27,8 +27,9 @@ namespace DesignPatterns.CreationalDesignPattern
 
     {
         private static int  count=0;
-        //Eager loading
-        private static readonly Singleton instance = new Singleton();
+        //Lazy loading
+        //By default Lazy objects are thread safe . So in multiple threads case it will take care for thread race condition
+        private static readonly Lazy<Singleton> instance = new Lazy<Singleton>(()=>new Singleton());
         private static  readonly object obj = new object();
         private Singleton()
         {
@@ -49,7 +50,7 @@ namespace DesignPatterns.CreationalDesignPattern
                 //}
                 
                 
-                return instance; 
+                return instance.Value; 
             }
         }
         public void  NewMethod(string name) {
