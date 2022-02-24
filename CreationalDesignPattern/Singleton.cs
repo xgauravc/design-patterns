@@ -28,7 +28,7 @@ namespace DesignPatterns.CreationalDesignPattern
     {
         private static int  count=0;
         //Eager loading
-        private static Singleton instance = new Singleton();
+        private static readonly Singleton instance = new Singleton();
         private static  readonly object obj = new object();
         private Singleton()
         {
