@@ -8,7 +8,8 @@ namespace DesignPatterns {
             Parallel.Invoke(
                 () => GetGaurav(),
                 () => GetSwati()
-                ); 
+                );
+            Console.ReadLine();
             
         }
 

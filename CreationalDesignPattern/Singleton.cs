@@ -27,7 +27,8 @@ namespace DesignPatterns.CreationalDesignPattern
 
     {
         private static int  count=0;
-        private static Singleton instance = null;
+        //Eager loading
+        private static Singleton instance = new Singleton();
         private static  readonly object obj = new object();
         private Singleton()
         {
@@ -39,13 +40,13 @@ namespace DesignPatterns.CreationalDesignPattern
             {
                 //as lock is costly we need to enter the lock scope only if instace is null. 
                 //This is Double check locking
-                if (instance == null) {
-                    lock (obj)
-                    {
-                        if (instance == null)
-                            instance = new Singleton();
-                    }
-                }
+                //if (instance == null) {
+                //    lock (obj)
+                //    {
+                //        if (instance == null)
+                //            instance = new Singleton();
+                //    }
+                //}
                 
                 
                 return instance; 
